@@ -7,12 +7,12 @@ Copy the pre-configured hardening file to the system directory:
 ```bash
 sudo cp HDD_99-mint-hardening.conf /etc/sysctl.d/99-mint-hardening.conf
 ```
-```bash
 Apply immediately
+```bash
 sudo sysctl --system
 ```
-```bash
 Verify key parameters
+```bash
 sysctl vm.swappiness vm.dirty_ratio vm.vfs_cache_pressure net.ipv4.tcp_congestion_control net.core.default_qdisc
 ```
 ## 2. Configure `bfq` I/O Scheduler (HDD-Optimized)
