@@ -6,6 +6,8 @@
 Copy the pre-configured hardening file to the system directory:
 ```bash
 sudo cp SSD_99-mint-hardening.conf /etc/sysctl.d/99-mint-hardening.conf
+sudo sysctl --system
+sysctl vm.swappiness vm.dirty_ratio vm.vfs_cache_pressure net.ipv4.tcp_congestion_control net.core.default_qdisc
 ```
 
 ## 2. Configure `none` I/O Scheduler & TRIM (SSD-Optimized)
