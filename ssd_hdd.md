@@ -22,8 +22,6 @@ vm.vfs_cache_pressure = 50
 net.ipv4.tcp_congestion_control = cubic
 net.core.default_qdisc = fq
 `
-
-
 ## 2. Configure `none` I/O Scheduler & TRIM (SSD-Optimized)
 > Modern SSDs handle I/O optimization internally. The `none` scheduler passes requests directly to the drive with zero CPU overhead.
 
@@ -44,7 +42,7 @@ sudo systemctl enable --now fstrim.timer
 ```bash
 cat /sys/block/$(lsblk -d -o NAME | grep -E "nvme|sda" | head -1)/queue/scheduler
 ```
-✅ **Expected output:** `[none] mq-deadline kyber bfq` or `none [mq-deadline]`
+✅ **Expected output:** `none [mq-deadline]`
 
 ### 🔄 Rollback (If Needed)
 ```bash
