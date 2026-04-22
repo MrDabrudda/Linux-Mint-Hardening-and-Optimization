@@ -142,10 +142,7 @@ Run these commands after logging back in:
 ```bash
 mount | grep " / "
 ```
-### Should return something like this
-```bash
-..... / type ext4 (rw,noatime,errors=remount-ro,commit=60)
-```
+✅ **Expected:** "..... / type ext4 (rw,noatime,errors=remount-ro,commit=60)"
 
 ### 2. Check zswap Status
 ```bash
