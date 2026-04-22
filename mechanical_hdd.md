@@ -53,7 +53,7 @@ sudo nano /etc/fstab
 ### Add this line at the very bottom of the file:
 ### 💡 Why size=1G? Limits RAM usage to prevent system slowdowns. Adjust to 2G if you have 8GB+ RAM and regularly compile code or extract large archives.
 ```bash
-tmpfs /tmp tmpfs defaults,nodev,noexec,nosuid,size=2G 0 0
+tmpfs /tmp tmpfs defaults,nodev,noexec,nosuid,size=1G 0 0
 ```
 ### Verify Syntax
 ```bash
