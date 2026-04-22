@@ -184,19 +184,21 @@ vmstat 1 5 | awk 'NR>2 {print $16"% wa"}'
 systemctl status tmp.mount
 ```
 ✅ **Expected:**
-
+```bash
 `Loaded: loaded (/etc/fstab; generated)
 
 Active: active (mounted) since Wed 2026-04-22 14:29:21 MDT; 28min ago`
+````
 
 ```bash
 df -h /tmp
 ```
 ✅ **Expected:**
-
+```bash
 `Filesystem      Size  Used Avail Use% Mounted on
 
 tmpfs           2.0G  2.6M  2.0G   1% /tmp'
+```
 
 ### Verify the config file is applied
 ```bash
