@@ -19,7 +19,7 @@ systemctl status preload
 ```
 ### See what files are being cached
 ```bash
-sudo tail -f /var/log/preload/preload.log
+sudo tail -f /var/log/preload.log
 ```
 
 ###⚠️ Note: preload may slightly increase boot time as it loads cached data early—but app launches afterward are noticeably faster
