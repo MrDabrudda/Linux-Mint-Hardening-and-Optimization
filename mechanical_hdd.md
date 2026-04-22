@@ -1,5 +1,7 @@
 # Linux Mint HDD Optimization Guide
 
+## Use this configuration guide for mechanical HDDs only...NOT SSDs or NVMe
+
 ## 1. Apply Hardened Sysctl Configuration
 Copy the pre-configured hardening file to the system directory:
 ```bash
