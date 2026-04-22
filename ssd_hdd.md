@@ -1,5 +1,7 @@
 # Linux Mint SSD Optimization Guide
 
+## Use this configuration guide for SSD and NVMe HDD only
+
 ## 1. Apply Hardened Sysctl Configuration
 Copy the pre-configured hardening file to the system directory:
 ```bash
