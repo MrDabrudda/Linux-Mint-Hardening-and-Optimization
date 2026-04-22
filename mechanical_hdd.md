@@ -153,12 +153,13 @@ dmesg | grep zswap
 ```bash
 cat /sys/module/zswap/parameters/enabled
 ```
-✅ **Should output:** `Y`
+✅ **Expected:** `Y`
 
 ### 3. Verify Sysctl Persistence
 ```bash
 sysctl -p /etc/sysctl.d/99-mint-hardening.conf 2>&1 | grep -i error
 ```
+✅ **Expected:** `"No Errors should be displayed`
 
 ### 4. Check I/O Scheduler
 ```bash
