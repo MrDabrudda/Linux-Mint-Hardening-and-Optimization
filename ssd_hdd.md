@@ -5,7 +5,7 @@
 ## 1. Apply Hardened Sysctl Configuration
 Copy the pre-configured hardening file to the system directory:
 ```bash
-sudo cp SSD_99-mint-hardening.conf /etc/sysctl.d/99-mint-hardening.confss
+sudo cp SSD_99-mint-hardening.conf /etc/sysctl.d/99-mint-hardening.conf
 ```
 
 ## 2. Configure `none` I/O Scheduler & TRIM (SSD-Optimized)
