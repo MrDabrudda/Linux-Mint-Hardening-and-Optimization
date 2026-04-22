@@ -159,7 +159,7 @@ cat /sys/module/zswap/parameters/enabled
 ```bash
 sysctl -p /etc/sysctl.d/99-mint-hardening.conf 2>&1 | grep -i error
 ```
-✅ **Expected:** `"No Errors should be displayed`
+✅ **Expected:** `No Errors should be displayed`
 
 ### 4. Check I/O Scheduler
 ```bash
