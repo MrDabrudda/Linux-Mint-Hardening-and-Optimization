@@ -184,6 +184,7 @@ vmstat 1 5 | awk 'NR>2 {print $16"% wa"}'
 systemctl status tmp.mount
 ```
 ✅ **Expected:**
+
 Loaded: loaded (/etc/fstab; generated)<br>
 Active: active (mounted) since Wed 2026-04-22 14:29:21 MDT; 28min ago
 
