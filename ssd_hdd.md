@@ -15,6 +15,14 @@ Verify key parameters
 ```bash
 sysctl vm.swappiness vm.dirty_ratio vm.vfs_cache_pressure net.ipv4.tcp_congestion_control net.core.default_qdisc
 ```
+✅ **Expected output:** `ault_qdisc
+vm.swappiness = 10
+vm.dirty_ratio = 20
+vm.vfs_cache_pressure = 50
+net.ipv4.tcp_congestion_control = cubic
+net.core.default_qdisc = fq
+`
+
 
 ## 2. Configure `none` I/O Scheduler & TRIM (SSD-Optimized)
 > Modern SSDs handle I/O optimization internally. The `none` scheduler passes requests directly to the drive with zero CPU overhead.
