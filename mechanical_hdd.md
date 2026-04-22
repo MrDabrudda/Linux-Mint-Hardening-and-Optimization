@@ -73,7 +73,7 @@ sudo nano /etc/fstab
 ### Add this line at the very bottom of the file:
 ### 💡 Why size=1G? Limits RAM usage to prevent system slowdowns. Adjust to 2G if you have 8GB+ RAM and regularly compile code or extract large archives.
 ```bash
-tmpfs /tmp tmpfs defaults,nodev,noexec,nosuid,size=2G 0 0
+tmpfs /tmp tmpfs defaults,nodev,noexec,nosuid,size=1G 0 0
 ```
 ### Verify Syntax
 ```bash
@@ -183,14 +183,12 @@ vmstat 1 5 | awk 'NR>2 {print $16"% wa"}'
 ```bash
 systemctl status tmp.mount
 ```
-✅ **Expected:**  'Loaded: loaded (/etc/fstab; generated)'
-                  'Active: active (mounted) since Wed 2026-04-22 14:29:21 MDT; 28min ago'
+✅ **Expected:** `Loaded: loaded (/etc/fstab; generated) Active: active (mounted) since Wed 2026-04-22 14:29:21 MDT; 28min ago`
 
 ```bash
 df -h /tmp
 ```
-✅ **Expected:**  'Filesystem      Size  Used Avail Use% Mounted on'
-                  'tmpfs           2.0G  2.6M  2.0G   1% /tmp'
+✅ **Expected:**  `Filesystem      Size  Used Avail Use% Mounted on  tmpfs           2.0G  2.6M  2.0G   1% /tmp`
 
 ### Verify the config file is applied
 ```bash
