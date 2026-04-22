@@ -141,7 +141,7 @@ mount | grep " / "
 ```bash
 cat /sys/block/sda/queue/scheduler
 ```
-✅ **Expected:** `[none]` or `none`
+✅ **Expected:** `[none] mq-deadline`
 
 ### 3. Check TRIM Support & Status
 ```bash
