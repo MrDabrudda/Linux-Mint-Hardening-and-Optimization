@@ -158,6 +158,7 @@ systemctl status fstrim.timer | grep "active"
 ```bash
 cat /proc/cmdline | grep -o "zswap.enabled=1 zswap.compressor=zstd"
 ```
+✅ **Expected:** `zswap.enabled=1 zswap.compressor=zstd`
 
 ### 5. Monitor SSD Wear & Health
 ```bash
