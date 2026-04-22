@@ -13,8 +13,14 @@ sudo sysctl --system
 ```bash
 sudo apt install preload
 ```
-###systemctl status preload
-###sudo tail -f /var/log/preload/preload.log
+### Check status of Preload
+```bash
+systemctl status preload
+```
+### See what files are being cached
+```bash
+sudo tail -f /var/log/preload/preload.log
+```
 
 ###⚠️ Note: preload may slightly increase boot time as it loads cached data early—but app launches afterward are noticeably faster
 
