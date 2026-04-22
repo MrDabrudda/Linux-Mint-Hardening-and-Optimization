@@ -9,6 +9,20 @@ Activate the new config file
 ```bash
 sudo sysctl --system
 ```
+## Install Preload package which speeds up loading of regularly used programs
+```bash
+sudo apt install preload
+```
+###systemctl status preload
+###sudo tail -f /var/log/preload/preload.log
+
+###⚠️ Note: preload may slightly increase boot time as it loads cached data early—but app launches afterward are noticeably faster
+
+## Disable animations on Desktop for faster UI
+```bash
+gsettings set org.cinnamon.desktop.interface enable-animations false
+gsettings set org.cinnamon enable-effects false
+```
 
 ## Configure `bfq` I/O Scheduler (HDD-Optimized)
 > Reduces mechanical head-seeking thrashing during multitasking.
@@ -53,7 +67,7 @@ sudo nano /etc/fstab
 ### Add this line at the very bottom of the file:
 ### 💡 Why size=1G? Limits RAM usage to prevent system slowdowns. Adjust to 2G if you have 8GB+ RAM and regularly compile code or extract large archives.
 ```bash
-tmpfs /tmp tmpfs defaults,nodev,noexec,nosuid,size=1G 0 0
+tmpfs /tmp tmpfs defaults,nodev,noexec,nosuid,size=2G 0 0
 ```
 ### Verify Syntax
 ```bash
@@ -172,6 +186,7 @@ vm.swappines = 10
 vm.dirty_ratio = 15
 vm.vfs_cahce_pressure = 50
 ```
+
 ---
 
 ## ⚠️ Important Notes
