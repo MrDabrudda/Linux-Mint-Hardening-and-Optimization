@@ -166,11 +166,12 @@ df -h /tmp
 ```bash
 sysctl vm.swappiness vm.dirty_ratio vm.vfs_cache_pressure
 ```
-### Should return:
-### vm.swappines = 10
-### vm.dirty_ratio = 15
-### vm.vfs_cahce_pressure = 50
-
+```bash
+Should return:
+vm.swappines = 10
+vm.dirty_ratio = 15
+vm.vfs_cahce_pressure = 50
+```
 ---
 
 ## ⚠️ Important Notes
