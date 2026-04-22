@@ -1,36 +1,27 @@
 # Linux Mint HDD Optimization Guide
 
-## Use this configuration guide for mechanical HDDs only...NOT SSDs or NVMe
-
-## 1. Apply Hardened Sysctl Configuration
+## Apply Hardened Sysctl Configuration
 Copy the pre-configured hardening file to the system directory:
 ```bash
 sudo cp HDD_99-mint-hardening.conf /etc/sysctl.d/99-mint-hardening.conf
 ```
-Apply immediately
-```bash
-sudo sysctl --system
-```
-Verify key parameters
-```bash
-sysctl vm.swappiness vm.dirty_ratio vm.vfs_cache_pressure net.ipv4.tcp_congestion_control net.core.default_qdisc
-```
-## 2. Configure `bfq` I/O Scheduler (HDD-Optimized)
+
+## Configure `bfq` I/O Scheduler (HDD-Optimized)
 > Reduces mechanical head-seeking thrashing during multitasking.
 
-### Step 1: Auto-detect HDD & Create udev Rule
+### Auto-detect HDD & Create udev Rule
 ```bash
 HDD=$(lsblk -d -o NAME,ROTA | awk '$2==1 {print $1}' | head -1)
 echo "ACTION==\"add|change\", KERNEL==\"${HDD}\", ATTR{queue/scheduler}=\"bfq\"" | sudo tee /etc/udev/rules.d/60-io-scheduler.rules
 ```
 *(Note: If the variable returns empty due to controller quirks, manually set it: `HDD="sda"`)*
 
-### Step 2: Apply Immediately
+### Apply Immediately
 ```bash
 echo bfq | sudo tee /sys/block/${HDD}/queue/scheduler
 ```
 
-### Step 3: Verify It's Active
+### Verify It's Active
 ```bash
 cat /sys/block/${HDD}/queue/scheduler
 ```
@@ -43,7 +34,7 @@ sudo rm /etc/udev/rules.d/60-io-scheduler.rules
 echo mq-deadline | sudo tee /sys/block/${HDD}/queue/scheduler
 ```
 
-## 3. Optimize `/etc/fstab` for HDD Performance
+## Optimize `/etc/fstab` for HDD Performance
 > Cuts unnecessary metadata writes by ~30% and batches disk flushes for smoother HDD performance.
 
 ### Backup fstab
@@ -55,7 +46,15 @@ sudo cp /etc/fstab /etc/fstab.bak-$(date +%F)
 ```bash
 sudo nano /etc/fstab
 ```
-
+### Add this line at the very bottom of the file:
+### 💡 Why size=1G? Limits RAM usage to prevent system slowdowns. Adjust to 2G if you have 8GB+ RAM and regularly compile code or extract large archives.
+```bash
+tmpfs /tmp tmpfs defaults,nodev,noexec,nosuid,size=2G 0 0
+```
+### Verify Syntax
+```bash
+sudo findmnt --verify --tab-file /etc/fstab
+```
 ### Modify Mount Options
 Find your root partition (`ext4`) and update the **4th column** (mount options):
 
@@ -84,15 +83,13 @@ sudo findmnt --verify --tab-file /etc/fstab
 ```bash
 sudo systemctl daemon-reload
 ```
-
-## 4. Enable `zswap` via GRUB
+## Enable `zswap` via GRUB
 Compresses swapped pages in RAM before writing to the mechanical drive, drastically reducing swap-induced freezes.
 
 ### Backup GRUB Config
 ```bash
 sudo cp /etc/default/grub /etc/default/grub.bak
 ```
-
 ### Edit GRUB
 ```bash
 sudo nano /etc/default/grub
@@ -153,6 +150,15 @@ mount | grep " / " | grep -o "noatime.*commit=60"
 vmstat 1 5 | awk 'NR>2 {print $16"% wa"}'
 ```
 ✅ **Target:** Should stay `<5%` during normal desktop use.
+
+### 7. Confirm tmpfs is active
+```bash
+systemctl status tmp.mount
+```
+```bash
+df -h /tmp
+```
+
 
 ---
 
