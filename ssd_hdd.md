@@ -1,4 +1,4 @@
-## Copy the SSD_99-mint-hardeing.conf to /etc/sysctl.d/99-mint-hardening.conf
+### Copy the SSD_99-mint-hardeing.conf to /etc/sysctl.d/99-mint-hardening.conf
 
 
 # 1. Automatically find your mechanical SDD & create the rule
