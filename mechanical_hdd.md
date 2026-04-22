@@ -201,7 +201,7 @@ tmpfs           2.0G  2.6M  2.0G   1% /tmp
 ```bash
 sysctl vm.swappiness vm.dirty_ratio vm.vfs_cache_pressure
 ```
-Should return:
+✅ **Expected:**
 ```bash
 vm.swappines = 10
 vm.dirty_ratio = 15
