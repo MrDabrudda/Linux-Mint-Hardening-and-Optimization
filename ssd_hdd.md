@@ -134,7 +134,8 @@ Run these commands after logging back in:
 ```bash
 mount | grep " / "
 ```
-✅ **Expected:** `defaults,noatime,errors=remount-ro`
+✅ **Expected:** `...../ type ext4 (rw,noatime,errors=remount-ro)
+`
 
 ### 2. Confirm I/O Scheduler
 ```bash
