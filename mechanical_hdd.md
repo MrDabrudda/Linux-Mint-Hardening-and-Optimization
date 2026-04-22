@@ -185,9 +185,9 @@ systemctl status tmp.mount
 ```
 ✅ **Expected:**
 
-`**Loaded: loaded (/etc/fstab; generated)
+`Loaded: loaded (/etc/fstab; generated)
 
-Active: active (mounted) since Wed 2026-04-22 14:29:21 MDT; 28min ago**`
+Active: active (mounted) since Wed 2026-04-22 14:29:21 MDT; 28min ago`
 
 ```bash
 df -h /tmp
