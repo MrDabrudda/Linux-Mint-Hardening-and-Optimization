@@ -165,11 +165,13 @@ sysctl -p /etc/sysctl.d/99-mint-hardening.conf 2>&1 | grep -i error
 ```bash
 cat /sys/block/$(lsblk -d -o NAME,ROTA | awk '$2==1 {print $1}' | head -1)/queue/scheduler
 ```
+✅ **Expected:** `none mq-deadline [bfq]`
 
 ### 5. Verify Mount Options (Detailed)
 ```bash
 mount | grep " / " | grep -o "noatime.*commit=60"
 ```
+✅ **Expected:** `noatime,errors=remount-ro,commit=60`
 
 ### 6. Monitor I/O Wait
 ```bash
