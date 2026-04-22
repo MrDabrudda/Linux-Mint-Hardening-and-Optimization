@@ -1,4 +1,4 @@
-Linux Mint Hardening and IO Optimization
+Linux Mint Hardening and HDD IO Optimization
 
 
 If you are using a mechanical, spinning, platter type HDD then follow the **mechanical_hdd.md**
