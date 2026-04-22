@@ -194,9 +194,7 @@ df -h /tmp
 ```bash
 sysctl vm.swappiness vm.dirty_ratio vm.vfs_cache_pressure
 ```
-✅ **Expected:**  'vm.swappines = 10'
-                  'vm.dirty_ratio = 15'
-                  'vm.vfs_cahce_pressure = 50'
+✅ **Expected:** `vm.swappines = 10 vm.dirty_ratio = 15 vm.vfs_cahce_pressure = 50`
 
 ---
 
