@@ -56,8 +56,11 @@ sudo systemctl restart preload
 sudo tail -n 20 /var/log/preload.log
 ```
 exit requested
+
 saving state to /var/lib/preload/preload.state
+
 loading conf from /etc/preload.conf
+
 loading state from /var/lib/preload/preload.state
 
 
