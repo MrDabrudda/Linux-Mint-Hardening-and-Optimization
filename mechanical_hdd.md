@@ -21,6 +21,36 @@ systemctl status preload
 ```bash
 sudo tail -f /var/log/preload.log
 ```
+### If you get errors when you run the tail...
+failed reading state from /var/lib/preload/preload.state: line 47871: invalid tag
+Exiting
+loading conf from /etc/preload.conf
+loading state from /var/lib/preload/preload.state
+failed reading state from /var/lib/preload/preload.state: line 47871: invalid tag
+Exiting
+loading conf from /etc/preload.conf
+loading state from /var/lib/preload/preload.state
+failed reading state from /var/lib/preload/preload.state: line 47871: invalid tag
+Exiting
+
+### Run these commands to reset the preload.state file
+```bash
+sudo systemctl stop preload
+sudo rm /var/lib/preload/preload.state
+sudo systemctl start preload
+sudo systemctl restart preload
+```
+### The restart command will force preload to write the preload.state file
+
+```bash
+sudo tail -n 20 /var/log/preload.log
+```
+exit requested
+saving state to /var/lib/preload/preload.state
+loading conf from /etc/preload.conf
+loading state from /var/lib/preload/preload.state
+
+
 
 ###⚠️ Note: preload may slightly increase boot time as it loads cached data early—but app launches afterward are noticeably faster
 
