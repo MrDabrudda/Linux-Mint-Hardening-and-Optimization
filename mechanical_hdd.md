@@ -23,15 +23,25 @@ sudo tail -f /var/log/preload.log
 ```
 ### If you get errors when you run the tail...
 failed reading state from /var/lib/preload/preload.state: line 47871: invalid tag
+
 Exiting
+
 loading conf from /etc/preload.conf
+
 loading state from /var/lib/preload/preload.state
+
 failed reading state from /var/lib/preload/preload.state: line 47871: invalid tag
+
 Exiting
+
 loading conf from /etc/preload.conf
+
 loading state from /var/lib/preload/preload.state
+
 failed reading state from /var/lib/preload/preload.state: line 47871: invalid tag
+
 Exiting
+
 
 ### Run these commands to reset the preload.state file
 ```bash
